@@ -69,7 +69,7 @@ private fun BookScreenUi(list: List<Book>) {
             verticalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier.fillMaxSize()
         ) {
-            items(items = list) { item->
+            items(items = list) { item ->
                 BookItems(item)
             }
         }
@@ -78,20 +78,27 @@ private fun BookScreenUi(list: List<Book>) {
 
 @Composable
 private fun BookItems(item: Book) {
-    Card(modifier = Modifier
-        .fillMaxWidth()
-        .padding(8.dp),
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp),
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
-        Row(modifier = Modifier.fillMaxWidth()
-            .padding(10.dp),
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
+            /**AsyncImage loads the image asynchronously from a source like a URL,
+             * ensuring it doesn't block the main UI thread while the image is being fetched.
+             **/
             AsyncImage(
                 model = item.image,
                 contentDescription = item.title,
-                modifier = Modifier.size(100.dp)
+                modifier = Modifier
+                    .size(100.dp)
                     .clip(RoundedCornerShape(6.dp)),
                 contentScale = ContentScale.Crop
             )
