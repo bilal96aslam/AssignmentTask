@@ -1,4 +1,4 @@
-package com.app.assignmenttask.network.base
+package com.app.assignmenttask.data.remote.base
 
 sealed class ApiResponse<out T> {
     data class Success<out T>(val data: T, val code: Int) : ApiResponse<T>()

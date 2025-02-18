@@ -1,4 +1,4 @@
-package com.app.assignmenttask.network.response
+package com.app.assignmenttask.data.remote.response
 
 data class Book(
     val id: String,

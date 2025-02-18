@@ -2,8 +2,8 @@ package com.app.assignmenttask.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.app.assignmenttask.network.base.ApiResponse
-import com.app.assignmenttask.network.response.Book
+import com.app.assignmenttask.data.remote.base.ApiResponse
+import com.app.assignmenttask.data.remote.response.Book
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -1,7 +1,7 @@
-package com.app.assignmenttask.network.mappers
+package com.app.assignmenttask.data.remote.mappers
 
-import com.app.assignmenttask.network.response.Book
-import com.app.assignmenttask.network.response.BookResponse
+import com.app.assignmenttask.data.remote.response.Book
+import com.app.assignmenttask.data.remote.response.BookResponse
 
 fun mapBookResponseToBooks(response: BookResponse): List<Book> {
     // Create maps for quick lookups

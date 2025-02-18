@@ -1,6 +1,6 @@
-package com.app.assignmenttask.network
+package com.app.assignmenttask.data.remote
 
-import com.app.assignmenttask.network.response.BookResponse
+import com.app.assignmenttask.data.remote.response.BookResponse
 import retrofit2.Response
 import retrofit2.http.GET
 

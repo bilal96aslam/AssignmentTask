@@ -1,13 +1,21 @@
 package com.app.assignmenttask.presentation
 
-import com.app.assignmenttask.network.ApiService
-import com.app.assignmenttask.network.base.ApiError
-import com.app.assignmenttask.network.base.ApiResponse
-import com.app.assignmenttask.network.mappers.mapBookResponseToBooks
-import com.app.assignmenttask.network.response.Book
+import com.app.assignmenttask.data.local.FavouriteBookDao
+import com.app.assignmenttask.data.local.mappers.toBook
+import com.app.assignmenttask.data.local.mappers.toBookEntity
+import com.app.assignmenttask.data.remote.ApiService
+import com.app.assignmenttask.data.remote.base.ApiError
+import com.app.assignmenttask.data.remote.base.ApiResponse
+import com.app.assignmenttask.data.remote.mappers.mapBookResponseToBooks
+import com.app.assignmenttask.data.remote.response.Book
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class BookRepository @Inject constructor(private val apiService: ApiService) {
+class BookRepository @Inject constructor(
+    private val apiService: ApiService,
+    private val favouriteBookDao: FavouriteBookDao
+) {
     suspend fun getBooks(): ApiResponse<List<Book>> {
         return try {
             val response = apiService.getBookData()
@@ -25,4 +33,29 @@ class BookRepository @Inject constructor(private val apiService: ApiService) {
             ApiResponse.Error(ApiError(500, "Unexpected error: ${e.localizedMessage}"))
         }
     }
+
+    fun getFavouriteBooks(): Flow<List<Book>> {
+        return favouriteBookDao.getFavouriteBooks()
+            .map { entities ->
+                entities.map {
+                    it.toBook()
+                }
+            }
+    }
+
+    fun isBookFavourite(bookId: String): Flow<Boolean> {
+        return favouriteBookDao.getFavouriteBooks()
+            .map { entities ->
+                entities.any { it.id == bookId }
+            }
+    }
+
+    suspend fun markAsFavourite(book: Book) {
+        favouriteBookDao.upsert(book.toBookEntity())
+    }
+
+    suspend fun deleteFromFavourite(bookId: String) {
+        return favouriteBookDao.deleteFavouriteBook(bookId)
+    }
+
 }
