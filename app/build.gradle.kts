@@ -46,6 +46,9 @@ android {
     buildFeatures {
         compose = true
     }
+    tasks.withType<Test>().configureEach {
+        useJUnitPlatform()
+    }
 }
 
 dependencies {
@@ -59,6 +62,9 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -89,4 +95,23 @@ dependencies {
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
+
+    // test
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit.jupiter.api)
+    testImplementation(libs.junit.jupiter.params)
+    // JUnit 5 Engine (to actually run tests)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    // Mockito Core
+    testImplementation(libs.mockito.core)
+    // Enable mocking final classes (needed for Kotlin)
+    testImplementation(libs.mockito.inline)
+    // Mockito-Kotlin for better Kotlin support
+    testImplementation(libs.mockito.kotlin)
+    // Coroutine testing support for suspending functions
+    testImplementation(libs.kotlinx.coroutines.test)
+    // AssertJ for fluent assertions
+    testImplementation(libs.assertj.core)
 }

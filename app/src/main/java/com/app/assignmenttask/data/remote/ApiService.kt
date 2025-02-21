@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("test_api.json")
-    suspend fun getBookData() : Response<BookResponse>
+    suspend fun getBookData(): Response<BookResponse>
 }
