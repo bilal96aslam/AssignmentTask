@@ -49,6 +49,17 @@ android {
     tasks.withType<Test>().configureEach {
         useJUnitPlatform()
     }
+    android {
+        packagingOptions {
+            resources {
+                excludes += "META-INF/LICENSE.md"
+                excludes += "META-INF/LICENSE-notice.md"
+                excludes += "META-INF/DEPENDENCIES"
+                excludes += "META-INF/LICENSE"
+                excludes += "META-INF/NOTICE"
+            }
+        }
+    }
 }
 
 dependencies {
@@ -61,10 +72,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    testImplementation(libs.junit.jupiter)
-    testImplementation(libs.junit.jupiter)
-    testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -98,12 +105,6 @@ dependencies {
 
     // test
     testImplementation(libs.junit.jupiter)
-    testRuntimeOnly(libs.junit.jupiter.engine)
-    testImplementation(libs.junit.jupiter)
-    testImplementation(libs.junit.jupiter.api)
-    testImplementation(libs.junit.jupiter.params)
-    // JUnit 5 Engine (to actually run tests)
-    testRuntimeOnly(libs.junit.jupiter.engine)
     // Mockito Core
     testImplementation(libs.mockito.core)
     // Enable mocking final classes (needed for Kotlin)
@@ -114,4 +115,7 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     // AssertJ for fluent assertions
     testImplementation(libs.assertj.core)
+    androidTestImplementation(libs.assertj.core)
+    androidTestImplementation(libs.junit.jupiter)
+    androidTestImplementation(libs.turbine)
 }
