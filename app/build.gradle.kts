@@ -117,5 +117,7 @@ dependencies {
     testImplementation(libs.assertj.core)
     androidTestImplementation(libs.assertj.core)
     androidTestImplementation(libs.junit.jupiter)
+    // for flow testing
     androidTestImplementation(libs.turbine)
+    testImplementation(libs.turbine)
 }
