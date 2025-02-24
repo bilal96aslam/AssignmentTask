@@ -120,4 +120,6 @@ dependencies {
     // for flow testing
     androidTestImplementation(libs.turbine)
     testImplementation(libs.turbine)
+    // mock web server
+    testImplementation(libs.mockwebserver)
 }

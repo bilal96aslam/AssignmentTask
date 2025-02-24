@@ -1,4 +1,4 @@
-package com.app.assignmenttask.extension
+package com.app.assignmenttask.utils
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

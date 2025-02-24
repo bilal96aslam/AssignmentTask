@@ -4,7 +4,7 @@ import app.cash.turbine.test
 import com.app.assignmenttask.data.remote.base.ApiError
 import com.app.assignmenttask.data.remote.base.ApiResponse
 import com.app.assignmenttask.data.remote.response.Book
-import com.app.assignmenttask.extension.CoroutineTestExtension
+import com.app.assignmenttask.utils.CoroutineTestExtension
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.assertj.core.api.Assertions.assertThat

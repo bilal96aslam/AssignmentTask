@@ -1,0 +1,118 @@
+{
+  "data": [
+    {
+      "type": "book",
+      "id": "1",
+      "attributes": {
+        "title": "In Too Deep",
+        "image": "https://m.media-amazon.com/images/I/41s4IPscgtL._SX342_SY445_QL70_ML2_.jpg"
+      },
+      "relationships": {
+        "author": {
+          "data": {
+            "type": "author",
+            "id": "1"
+          }
+        }
+      }
+    },
+    {
+      "type": "book",
+      "id": "2",
+      "attributes": {
+        "title": "Tripwire",
+        "image": "https://m.media-amazon.com/images/I/51NaeFSwWCL._SY445_SX342_.jpg"
+      },
+      "relationships": {
+        "author": {
+          "data": {
+            "type": "author",
+            "id": "1"
+          }
+        }
+      }
+    },
+    {
+      "type": "book",
+      "id": "3",
+      "attributes": {
+        "title": "Gregg's Italian Family Cookbook",
+        "image": "https://m.media-amazon.com/images/I/51pUC8j3LpL._SX342_SY445_.jpg"
+      },
+      "relationships": {
+        "author": {
+          "data": {
+            "type": "author",
+            "id": "2"
+          }
+        },
+        "reviews": {
+          "data": {
+            "type": "review",
+            "id": "1"
+          }
+        }
+      }
+    },
+    {
+      "type": "book",
+      "id": "4",
+      "attributes": {
+        "title": "My Kind of Food: Recipes I Love to Cook at Home",
+        "image": "https://m.media-amazon.com/images/I/511UNmG50GL._SY445_SX342_QL70_ML2_.jpg"
+      },
+      "relationships": {
+        "author": {
+          "data": {
+            "type": "author",
+            "id": "3"
+          }
+        }
+      }
+    }
+  ],
+  "includes": [
+    {
+      "type": "author",
+      "id": "1",
+      "attributes": {
+        "name": "Lee Child"
+      },
+      "relationships": {
+        "books": {
+          "data": [
+            {
+              "type": "book",
+              "id": "1"
+            },
+            {
+              "type": "book",
+              "id": "2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "author",
+      "id": "2",
+      "attributes": {
+        "name": "Gregg Wallace"
+      }
+    },
+    {
+      "type": "author",
+      "id": "3",
+      "attributes": {
+        "name": "John Torode"
+      }
+    },
+    {
+      "type": "review",
+      "id": "1",
+      "attributes": {
+        "stars": "4.5/5"
+      }
+    }
+  ]
+}
