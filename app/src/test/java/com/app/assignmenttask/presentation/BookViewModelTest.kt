@@ -6,6 +6,7 @@ import com.app.assignmenttask.data.remote.base.ApiResponse
 import com.app.assignmenttask.data.remote.response.Book
 import com.app.assignmenttask.utils.CoroutineTestExtension
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -80,5 +81,23 @@ class BookViewModelTest {
         }
     }
 
+    @Test
+    fun `getFavouriteBooks should emit book list when repository returns bookList`() = runTest {
+        val expectedResponse = listOf(
+            Book("1", "Book 1", "John", "", "2", null, emptyList())
+        )
+        whenever(bookRepository.getBooks()).thenReturn(ApiResponse.Success(emptyList(), 200))
+        whenever(bookRepository.getFavouriteBooks()).thenReturn(flowOf(expectedResponse))
 
+        val viewModel = BookViewModel(bookRepository)
+
+        // Start collecting emissions in the background so we don't miss them
+        backgroundScope.launch {
+            viewModel.favoriteBooks.test {
+                val firstEmission = awaitItem()
+                assertEquals(expectedResponse, firstEmission)
+                cancelAndIgnoreRemainingEvents()
+            }
+        }
+    }
 }
