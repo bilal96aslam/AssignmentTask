@@ -18,17 +18,17 @@ This project demonstrates how to write unit tests for an MVVM-based Android appl
 
 The unit tests validate different layers of the MVVM architecture:
 
-** ViewModel Tests: ** Ensuring correct ViewModel behavior. 
+- **ViewModel Tests** Ensuring correct ViewModel behavior. 
 
-** Repository Tests: ** Mocking data sources and testing repository logic.
+- **Repository Tests** Mocking data sources and testing repository logic.
 
-** Retrofit API Tests: ** Mocking API responses.
+- **Retrofit API Tests** Mocking API responses.
 
-** Room Database Tests: ** Testing local database operations.
+- **Room Database Tests** Testing local database operations.
 
-** Kotlin Flow & Coroutine Tests: ** Validating asynchronous data streams.
+- **Kotlin Flow & Coroutine Tests** Validating asynchronous data streams.
 
-** Turbine for Flow Testing: ** Ensuring proper emission and collection behavior.
+- **Turbine for Flow Testing** Ensuring proper emission and collection behavior.
 
 ## 🛠 Tech Stack
 
