@@ -1,75 +1,48 @@
-MVVMTestSuite 🧪
+# MVVMTestSuite 🧪
+
 A sample project demonstrating unit testing in an MVVM architecture using Room Database, Retrofit, and Repository pattern in Android.
 
-🚀 Overview
+## 🚀 Overview
 
 This project demonstrates how to write unit tests for an MVVM-based Android application using Room Database, Retrofit API service, and Repository pattern. The tests cover:
 
-ViewModel tests
+1. ViewModel tests 
+2. Repository tests 
+3. Retrofit API service tests
+4. Room Database tests 
+5. Room Database tests
+6. Kotlin Flows & Coroutines tests 
+7. Turbine for testing Flows 
 
-Repository tests
-
-Retrofit API service tests
-
-Room Database tests
-
-🏗 Project Structure
-
-📂 assignmenttask  
-├── 📂 app  
-│   ├── MainActivity.kt  
-│   ├── MyApplication.kt  
-├── 📂 data  
-│   ├── 📂 local/ (Local database using Room)  
-│   ├── 📂 remote/ (Retrofit API services)  
-├── 📂 di  
-│   ├── AppModule.kt (Dependency Injection using Hilt)  
-├── 📂 presentation  
-│   ├── BookRepository.kt (Repository handling data operations)  
-│   ├── BookScreen.kt (Jetpack Compose UI screen)  
-│   ├── BookViewModel.kt (ViewModel for managing UI state)  
-├── 📂 ui/ (UI-related components)  
-├── 📂 res/ (Resources like drawables, layouts, etc.)  
-├── build.gradle  
-├── README.md  
-└── … (Other project files)
-
-🧪 Unit Tests
+## 🧪 Unit Tests
 
 The unit tests validate different layers of the MVVM architecture:
+** ViewModel Tests: ** Ensuring correct ViewModel behavior. **
+** Repository Tests: ** Mocking data sources and testing repository logic.
+** Retrofit API Tests: ** Mocking API responses.
+** Room Database Tests: ** Testing local database operations.
+** Kotlin Flow & Coroutine Tests: ** Validating asynchronous data streams.
+** Turbine for Flow Testing: ** Ensuring proper emission and collection behavior.
 
-ViewModel Tests: Ensuring correct ViewModel behavior.
+## 🛠 Tech Stack
 
-Repository Tests: Mocking data sources and testing repository logic.
+- Kotlin
+- MVVM Architecture
+- Hilt for Dependency Injection
+- Retrofit for API calls
+- Room for local database
+- JUnit & Mockito for Unit Testing
+- Kotlin Coroutines & Flow
+- Turbine for Flow Testing
 
-Retrofit API Tests: Mocking API responses.
+## Getting Started 🏁
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bilal96aslam/MVVMTestSuite.git
+   ```
+2. Open in Android Studio.
+3. Build and run the project.
 
-Room Database Tests: Testing local database operations.
 
-🛠 Tech Stack
-
-Kotlin
-
-MVVM Architecture
-
-Hilt for Dependency Injection
-
-Retrofit for API calls
-
-Room for local database
-
-JUnit & Mockito for Unit Testing
-
-🏁 Getting Started
-
-Clone the repository.
-
-Open the project in Android Studio.
-
-Run tests using:
-
-./gradlew test
-
-📌 License
-
-This project is open-source and available under the MIT License.
+## Contributing 🤝
+Contributions are welcome! Feel free to submit issues or pull requests.
